@@ -4,6 +4,11 @@ background: radial-gradient(circle, rgba(250, 204, 140, 0.36) 2%, rgba(255, 255,
   }
   
 
-#menuOpciones{
+/* #menuOpciones{
+  display: none;
+} */
+
+#volver{
   display: none;
 }
+
