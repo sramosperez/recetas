@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,34 +9,67 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/app.js"></script>
 </head>
-<body>
-    <header>
-        <svg>Logo</svg>
-        <button id="volver">Volver al Menu</button>
-        <h1>¿Qué quieres comer hoy?</h1>
-        <div id="principal">
-         <!--    <button id="boton">Un Plato</button> -->
 
-             
-<!--             <button>Menú semanal</button>
- -->        </div>
+<body>
+    <header class="top-bar">
+        <svg class="logo" width="116" height="85" viewBox="0 0 116 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M113.347 21.059C113.347 10.4063 104.169 -0.738949 104.169 2.60378C104.169 5.94651 105.867 50.3409 105.867 50.3409L104.169 79.3718C104.169 81.3518 105.774 82.9567 107.754 82.9567C109.734 82.9567 111.339 81.3518 111.339 79.3718L110.391 50.1742C110.391 50.1742 113.347 31.7116 113.347 21.059Z"
+                stroke="#D46C0B" stroke-opacity="0.8" stroke-width="3.58489" stroke-miterlimit="10" />
+            <path
+                d="M15.3019 3.92983C15.3019 3.92983 15.5018 11.3828 15.5018 18.459C15.5018 23.7663 13.8898 27.0991 11.5926 28.434L11.6437 79.3718C11.6437 81.3518 10.0388 82.9567 8.05882 82.9567C6.07889 82.9567 4.47393 81.3518 4.47393 79.3718L5.92725 28.4446C3.62037 27.1167 2 23.7801 2 18.459C2 11.3828 2.19986 3.92983 2.19986 3.92983"
+                stroke="#D46C0B" stroke-opacity="0.8" stroke-width="3.58489" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8.75088 3.92983V21.1102" stroke="#D46C0B" stroke-opacity="0.8" stroke-width="3.58489"
+                stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+                d="M59.3582 74.1521C79.1157 74.1521 95.1324 58.1354 95.1324 38.3779C95.1324 18.6204 79.1157 2.60378 59.3582 2.60378C39.6007 2.60378 23.5841 18.6204 23.5841 38.3779C23.5841 58.1354 39.6007 74.1521 59.3582 74.1521Z"
+                stroke="#D46C0B" stroke-opacity="0.8" stroke-width="3.58489" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            <path
+                d="M59.3658 60.23C71.393 60.23 81.1431 50.4799 81.1431 38.4527C81.1431 26.4254 71.393 16.6754 59.3658 16.6754C47.3385 16.6754 37.5885 26.4254 37.5885 38.4527C37.5885 50.4799 47.3385 60.23 59.3658 60.23Z"
+                stroke="#D46C0B" stroke-opacity="0.8" stroke-width="3.58489" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+
+
+        <h1>¿QUE QUIERES COMER HOY?</h1>
+        <div class="btn-back">
+            <button class="btn" id="volver">Volver al Menu</button>
+        </div>
+
     </header>
+    <!-- <div id="principal">
+               <button id="boton">Un Plato</button> 
+
+
+              <button>Menú semanal</button>
+
+        </div> -->
+
     <main>
 
-        
-        <div id="menuOpciones" style="border: 2px solid red">   <ul >
-            <li><button class="menu" id="entrante">Primer plato</button></li>
-            <li><button class="menu" id="segundo">Segundo plato</button></li>
-            <li><button class="menu" id="vegano">Plato vegano</button></li>
-            <li><button class="menu" id="japo">Japones</button></li>
-            <li><button class="menu" id="italian">Italiano</button></li>
-            <li><button class="menu" id="dessert">Postre</button></li>
+        <div class="principal">
+            <nav id="menuOpciones">
+                <ul>
+                    <li><button class="opcion btn" id="entrante">Primer plato</button></li>
+                    <li><button class="opcion btn" id="segundo">Segundo plato</button></li>
+                    <li><button class="opcion btn" id="vegano">Plato vegano</button></li>
+                    <li><button class="opcion btn" id="japo">Japones</button></li>
+                    <li><button class="opcion btn" id="italian">Italiano</button></li>
+                    <li><button class="opcion btn" id="dessert">Postre</button></li>
 
-        </ul></div>
-        <div id="centro">Div para opciones menu y mas tarde foto del plato y su nombre</div>
+                </ul>
+            </nav>
+            <img src="img/img1.png" alt="">
+        </div>
+        <div id="centro"></div>
+        <div class="imagenes">
         <div id="izquierda"></div>
-        <div id="derecha" style="border: 2px solid blue">Div para fotos variadas y mas tarde fotos de los ingredientes</div>
-        <div id="abajo" style="border: 2px solid green">Div para instrucciones</div>
+        <div id="derecha"></div>
+        </div>
+        <div id="abajo"></div>
     </main>
 </body>
+
 </html>

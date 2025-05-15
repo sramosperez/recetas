@@ -1,29 +1,35 @@
 $(document).ready(function () {
-  let opciones = [];
+ 
 
-  $("#volver").click(function () {
-    $("#instrucciones").empty();
-    $("#derecha").empty();
-    $("#izquierda").empty();
-    $("#abajo").empty();
-    $("#centro").empty();
-    $("#menuOpciones").show();
-    $('#volver').hide();
+   $(".opcion").click(function () {
+    //al pinchar sobre clase .opcion guarda la id y la pasa a la funcion
+    const opcion = this.id;
+    selectMenu(opcion);
   });
+
+  $(".logo").on("click",limpiar);
+  $("#volver").on("click",limpiar);
+
+function limpiar(){
+  $("#instrucciones, #derecha, #izquierda, #abajo , #centro").empty();
+  $(".principal").show();
+  $('#volver').hide();
+}
+
 
   function obtenerReceta(tipo, nombre, callback) {
     $.getJSON(`https://www.themealdb.com/api/json/v1/1/filter.php?${tipo}=${nombre}`).done(function (data) {
-      callback(data.meals); //uso callback para asegurarme los datos
+      callback(data.meals); //uso callback porque en encadeno peticiones 
     });
   }
 
   function selectMenu(opcion) {
-    $("#menuOpciones").hide();
+
+    $(".principal").hide();
 
     switch (opcion) {
-      case "entrante": //hago las peticiones una dentro de la otra
+      case "entrante": //hago las peticiones una dentro de la otra para asegurarme los datos
         obtenerReceta("c", "Starter", function (entrante) {
-          //encadeno callbacks
           obtenerReceta("c", "Pasta", function (pasta) {
             let opciones = entrante.concat(pasta);
             let random = Math.floor(Math.random() * opciones.length);
@@ -83,7 +89,7 @@ $(document).ready(function () {
   function obtenerDetalles(plato) {
     let id = plato.idMeal;
     $.getJSON(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`).done(function (data) {
-      let plato = data.meals[0]; //obtiene el detalle que es un array de objetos por eso pongo [0]
+      let plato = data.meals[0]; //obtiene el detalle que es un array de objetos por eso pongo [0] si no da undefined
       let categoria = plato.strCategory;
       let nombre = plato.strMeal;
       let imagen = plato.strMealThumb;
@@ -102,9 +108,9 @@ $(document).ready(function () {
   }
 
   function pintarPlato(categoria, nombre, img, ingredientes, instrucciones) {
-    $("#centro").html(`<h2>${categoria}</h2><h3>${nombre}</h3>`);
-    $("#abajo").html(instrucciones);
-    $("#izquierda").html(`<img src=${img}/small>`);
+    $("#centro").html(`<h2>${nombre}</h2><h2>${categoria}</h2>`);
+    $("#abajo").html(`<h2>Instrucciones:</h2> </br> ${instrucciones}`);
+    $("#izquierda").html(`<img src=${img}/medium>`);
 
     ingredientes.forEach((url) => {
       $("#derecha").append(`<img src="${url}">`);
@@ -112,15 +118,5 @@ $(document).ready(function () {
     });
   }
 
-  /* $("#boton").click(function () {
-    //esconde boton y muestra el menu
-    $("#boton").hide();
-    $("#menuOpciones").show();
-  }); */
-
-  $(".menu").click(function () {
-    //al pinchar sobre clase .menu guarda la id y la pasa a la funcion
-    const opcion = this.id;
-    selectMenu(opcion);
-  });
+ 
 });
